@@ -14,6 +14,7 @@
 		78500A1827BB9BAC0024AA83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78500A1627BB9BAC0024AA83 /* Main.storyboard */; };
 		78500A1A27BB9BAE0024AA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78500A1927BB9BAE0024AA83 /* Assets.xcassets */; };
 		78500A2527BBDFBB0024AA83 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A2427BBDFBB0024AA83 /* Data.swift */; };
+		78B80E0B27BD36ED00371DA9 /* MTUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B80E0A27BD36ED00371DA9 /* MTUserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		78500A1927BB9BAE0024AA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78500A1E27BB9BAE0024AA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78500A2427BBDFBB0024AA83 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		78B80E0A27BD36ED00371DA9 /* MTUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTUserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				783559FC27BC478E00715351 /* Supporting Files */,
 				78500A1427BB9BAC0024AA83 /* ViewController.swift */,
+				78B80E0A27BD36ED00371DA9 /* MTUserDefaults.swift */,
 				78500A2427BBDFBB0024AA83 /* Data.swift */,
 				78500A1627BB9BAC0024AA83 /* Main.storyboard */,
 				7819DA4E27BD112800867E36 /* Launch Screen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				78500A1527BB9BAC0024AA83 /* ViewController.swift in Sources */,
 				78500A1127BB9BAC0024AA83 /* AppDelegate.swift in Sources */,
+				78B80E0B27BD36ED00371DA9 /* MTUserDefaults.swift in Sources */,
 				78500A1327BB9BAC0024AA83 /* SceneDelegate.swift in Sources */,
 				78500A2527BBDFBB0024AA83 /* Data.swift in Sources */,
 			);

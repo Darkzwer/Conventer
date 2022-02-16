@@ -8,6 +8,23 @@
 
 import UIKit
 
+enum Theme: Int {
+    case device
+    case light
+    case dark
+    
+    func getUserInterfaceStyle() -> UIUserInterfaceStyle {
+        switch self {
+        case .device:
+            return.unspecified
+        case .light:
+            return.light
+        case .dark:
+            return.dark
+        }
+    }
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var selectFromCurrencyBtn: UIButton!
@@ -16,9 +33,58 @@ class ViewController: UIViewController {
     @IBOutlet weak var toCurrencyLbl: UILabel!
     @IBOutlet weak var convertBtn: UIButton!
     
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var toLabel: UILabel!
+    
+    @IBAction func whiteMode(_ sender: UIButton) {
+        view.backgroundColor = .white
+        selectToCurrencyBtn.backgroundColor = .white
+        selectFromCurrencyBtn.backgroundColor = .white
+        selectToCurrencyBtn.backgroundColor = .white
+        fromCurrencyTextField.backgroundColor = .white
+        toCurrencyLbl.backgroundColor = .white
+        convertBtn.backgroundColor = .systemTeal
+        //convertBtn.layer.cornerRadius = 55
+        
+        fromLabel.textColor = .black
+        fromLabel.text = "From"
+        toLabel.textColor = .black
+        toLabel.text = "To"
+    }
+    @IBAction func darkMode(_ sender: UIButton) {
+        view.backgroundColor = .black
+        selectToCurrencyBtn.backgroundColor = .white
+        //selectToCurrencyBtn.tintColor = .black
+        selectFromCurrencyBtn.backgroundColor = .white
+        //selectFromCurrencyBtn.tintColor = .black
+        fromCurrencyTextField.backgroundColor = .white
+        toCurrencyLbl.backgroundColor = .white
+        convertBtn.backgroundColor = .white
+        
+        fromLabel.textColor = .white
+        fromLabel.text = "From"
+        toLabel.textColor = .white
+        toLabel.text = "To"
+    }
+    
     var currencyConvertRateDict = ["BYN 🇧🇾":2.65,"RUB 🇷🇺":68.6809355693,"EUR 🇪🇺":0.8826125331,"USD 🇺🇸":1.0]
     var fromCurrency = ""
     var toCurrency = ""
+    
+    private var segmentedidControl: UISegmentedControl {
+        let segmentedControl = UISegmentedControl(items: ["Device", "Light", "Dark"])
+        segmentedControl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        segmentedControl.selectedSegmentTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.tintColor = UIColor(named: "otherColor")
+        segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        return segmentedControl
+    }
+    
+    @objc private func segmentChanged() {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,4 +138,3 @@ class ViewController: UIViewController {
     
     
 }
-
