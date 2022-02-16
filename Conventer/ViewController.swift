@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var toCurrencyLbl: UILabel!
     @IBOutlet weak var convertBtn: UIButton!
     
-    var currencyConvertRateDict = ["RUB":68.6809355693,"EUR":0.8826125331,"USD":1.0]
+    var currencyConvertRateDict = ["BYN 🇧🇾":2.65,"RUB 🇷🇺":68.6809355693,"EUR 🇪🇺":0.8826125331,"USD 🇺🇸":1.0]
     var fromCurrency = ""
     var toCurrency = ""
     
