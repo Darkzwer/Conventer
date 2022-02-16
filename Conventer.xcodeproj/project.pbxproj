@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78355A0027BCF93A00715351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783559FF27BCF93A00715351 /* LaunchScreen.storyboard */; };
+		7819DA4F27BD112800867E36 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7819DA4E27BD112800867E36 /* Launch Screen.storyboard */; };
 		78500A1127BB9BAC0024AA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A1027BB9BAC0024AA83 /* AppDelegate.swift */; };
 		78500A1327BB9BAC0024AA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A1227BB9BAC0024AA83 /* SceneDelegate.swift */; };
 		78500A1527BB9BAC0024AA83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A1427BB9BAC0024AA83 /* ViewController.swift */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		783559FF27BCF93A00715351 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7819DA4E27BD112800867E36 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		78500A0D27BB9BAC0024AA83 /* Conventer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conventer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78500A1027BB9BAC0024AA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78500A1227BB9BAC0024AA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		78500A0427BB9BAC0024AA83 = {
 			isa = PBXGroup;
 			children = (
-				783559FF27BCF93A00715351 /* LaunchScreen.storyboard */,
+				7819DA4E27BD112800867E36 /* Launch Screen.storyboard */,
 				78500A0F27BB9BAC0024AA83 /* Conventer */,
 				78500A0E27BB9BAC0024AA83 /* Products */,
 			);
@@ -136,7 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78355A0027BCF93A00715351 /* LaunchScreen.storyboard in Resources */,
+				7819DA4F27BD112800867E36 /* Launch Screen.storyboard in Resources */,
 				78500A1A27BB9BAE0024AA83 /* Assets.xcassets in Resources */,
 				78500A1827BB9BAC0024AA83 /* Main.storyboard in Resources */,
 			);
