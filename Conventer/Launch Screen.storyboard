@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Conventer" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                <rect key="frame" x="0.0" y="279" width="414" height="41.5"/>
+                                <rect key="frame" x="0.0" y="278" width="414" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -38,14 +38,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="bW3-YA-cam" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="FQP-NL-aex"/>
                             <constraint firstItem="bW3-YA-cam" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="45" id="H4M-N9-tro"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="bW3-YA-cam" secondAttribute="trailing" constant="87" id="PtQ-VN-Zh8"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="bW3-YA-cam" secondAttribute="bottom" constant="62" id="ag8-Jt-0hU"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="1" id="moa-c2-u7t"/>
-                            <constraint firstItem="bW3-YA-cam" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="87" id="nDO-gz-Jzi"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="bW3-YA-cam" secondAttribute="trailing" constant="87" id="tQ2-E1-C4W"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="bW3-YA-cam" secondAttribute="bottom" constant="645" id="nB9-Cd-dAQ"/>
+                            <constraint firstItem="bW3-YA-cam" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.57971" id="r9o-5x-78t"/>
+                            <constraint firstItem="bW3-YA-cam" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.142857" id="tTg-ls-Hsh"/>
+                            <constraint firstItem="bW3-YA-cam" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="87" id="tb1-z8-GcB"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="x7j-FC-K8j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
