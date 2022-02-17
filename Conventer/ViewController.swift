@@ -32,40 +32,44 @@ class ViewController: UIViewController {
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyLbl: UILabel!
     @IBOutlet weak var convertBtn: UIButton!
-    
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var rightBarButton: UIBarButtonItem!
     
-    @IBAction func whiteMode(_ sender: UIButton) {
-        view.backgroundColor = .white
-        selectToCurrencyBtn.backgroundColor = .white
-        selectFromCurrencyBtn.backgroundColor = .white
-        selectToCurrencyBtn.backgroundColor = .white
-        fromCurrencyTextField.backgroundColor = .white
-        toCurrencyLbl.backgroundColor = .white
-        convertBtn.backgroundColor = .systemTeal
-        //convertBtn.layer.cornerRadius = 55
-        
-        fromLabel.textColor = .black
-        fromLabel.text = "From"
-        toLabel.textColor = .black
-        toLabel.text = "To"
+    @IBAction func darkModeSwitch(_ sender: UIBarButtonItem) {
+        if darkMode == false {
+            darkMode = true
+            view.backgroundColor = .black
+            selectToCurrencyBtn.backgroundColor = .white
+            selectFromCurrencyBtn.backgroundColor = .white
+            fromCurrencyTextField.backgroundColor = .white
+            toCurrencyLbl.backgroundColor = .white
+            convertBtn.backgroundColor = .white
+            
+            fromLabel.textColor = .white
+            fromLabel.text = "From"
+            toLabel.textColor = .white
+            toLabel.text = "To"
+            
+        } else if darkMode == true {
+            darkMode = false
+            view.backgroundColor = .white
+            selectToCurrencyBtn.backgroundColor = .white
+            selectFromCurrencyBtn.backgroundColor = .white
+            selectToCurrencyBtn.backgroundColor = .white
+            fromCurrencyTextField.backgroundColor = .white
+            toCurrencyLbl.backgroundColor = .white
+            convertBtn.backgroundColor = .systemTeal
+            
+            fromLabel.textColor = .black
+            fromLabel.text = "From"
+            toLabel.textColor = .black
+            toLabel.text = "To"
+            //rightBarButton.image = UIImage(named: "sun.max")
+        }
     }
-    @IBAction func darkMode(_ sender: UIButton) {
-        view.backgroundColor = .black
-        selectToCurrencyBtn.backgroundColor = .white
-        //selectToCurrencyBtn.tintColor = .black
-        selectFromCurrencyBtn.backgroundColor = .white
-        //selectFromCurrencyBtn.tintColor = .black
-        fromCurrencyTextField.backgroundColor = .white
-        toCurrencyLbl.backgroundColor = .white
-        convertBtn.backgroundColor = .white
-        
-        fromLabel.textColor = .white
-        fromLabel.text = "From"
-        toLabel.textColor = .white
-        toLabel.text = "To"
-    }
+    
+    var darkMode = false
     
     var currencyConvertRateDict = ["BYN 🇧🇾":2.65,"RUB 🇷🇺":68.6809355693,"EUR 🇪🇺":0.8826125331,"USD 🇺🇸":1.0]
     var fromCurrency = ""
