@@ -10,7 +10,7 @@
         <!--Currency-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Conventer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainVC" customModule="Conventer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,12 +63,13 @@
                                     <action selector="convertBtnAxn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ImJ-as-TkH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaf-qk-Pq1">
-                                <rect key="frame" x="261" y="581" width="74" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaf-qk-Pq1">
+                                <rect key="frame" x="114" y="581" width="261" height="46"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="segue"/>
+                                <state key="normal" title="Select Currency"/>
                                 <connections>
-                                    <segue destination="poi-n2-rA7" kind="show" identifier="secondScreen" id="8co-Be-WBR"/>
+                                    <segue destination="poi-n2-rA7" kind="show" identifier="segue" id="8co-Be-WBR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,14 +97,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNc-Or-dFx" secondAttribute="trailing" constant="100" id="ngb-6x-Xim"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="def-Gg-DiE" secondAttribute="trailing" constant="16" id="pvo-FX-nfY"/>
                             <constraint firstItem="jIW-8s-7BX" firstAttribute="top" secondItem="C9m-Js-hjv" secondAttribute="bottom" constant="16" id="rLM-NE-8gY"/>
-                            <constraint firstItem="Kaf-qk-Pq1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="261" id="sLI-1n-bDH"/>
+                            <constraint firstItem="Kaf-qk-Pq1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="sLI-1n-bDH"/>
                             <constraint firstItem="def-Gg-DiE" firstAttribute="width" secondItem="iiX-MV-fgi" secondAttribute="width" id="t9g-2b-qE8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kaf-qk-Pq1" secondAttribute="trailing" id="y5f-EY-RJ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Currency" id="OPu-vC-v8m">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="moon.zzz.fill" catalog="system" id="Wb6-Ts-QLf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="moon.zzz.fill" id="Wb6-Ts-QLf">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="darkModeSwitch:" destination="BYZ-38-t0r" id="cph-cu-OHm"/>
@@ -125,16 +126,16 @@
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="108.39580209895054"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Currency PickerVC-->
         <scene sceneID="eEu-d3-nfu">
             <objects>
-                <tableViewController id="poi-n2-rA7" sceneMemberID="viewController">
+                <tableViewController id="poi-n2-rA7" customClass="CurrencyPickerVC" customModule="Conventer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8pE-5Z-brc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Vhe-T0-hyV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="Vhe-T0-hyV">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vhe-T0-hyV" id="fRa-ek-5jo">
@@ -174,6 +175,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="moon.zzz.fill" catalog="system" width="58" height="64"/>
+        <image name="moon.zzz.fill" width="58" height="64"/>
     </resources>
 </document>

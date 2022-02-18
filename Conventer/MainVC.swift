@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainVC: UIViewController {
     
     @IBOutlet weak var selectFromCurrencyBtn: UIButton!
     @IBOutlet weak var selectToCurrencyBtn: UIButton!
@@ -23,8 +23,7 @@ class ViewController: UIViewController {
     }
     
     var darkMode = false
-    
-    var currencyConvertRateDict = ["BYN 🇧🇾":2.65,"RUB 🇷🇺":68.6809355693,"EUR 🇪🇺":0.8826125331,"USD 🇺🇸":1.0]
+    var currencyConvertRateDict = Data.CurrencyConvertRateDict
     var fromCurrency = ""
     var toCurrency = ""
     
@@ -32,12 +31,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "secondScreen" else { return }
-        guard let destination = segue.description as? SecondVC else {
-            return
-        }
+        guard segue.identifier == "segue" else { return }
+        guard let destionation = segue.destination as? CurrencyPickerVC else { return }
     }
     
     @IBAction func selectFromCurrencyBtnAxn(_ sender: UIButton) {
