@@ -8,23 +8,6 @@
 
 import UIKit
 
-enum Theme: Int {
-    case device
-    case light
-    case dark
-    
-    func getUserInterfaceStyle() -> UIUserInterfaceStyle {
-        switch self {
-        case .device:
-            return.unspecified
-        case .light:
-            return.light
-        case .dark:
-            return.dark
-        }
-    }
-}
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var selectFromCurrencyBtn: UIButton!
@@ -35,38 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
-    
     @IBAction func darkModeSwitch(_ sender: UIBarButtonItem) {
-        if darkMode == false {
-            darkMode = true
-            view.backgroundColor = .black
-            selectToCurrencyBtn.backgroundColor = .white
-            selectFromCurrencyBtn.backgroundColor = .white
-            fromCurrencyTextField.backgroundColor = .white
-            toCurrencyLbl.backgroundColor = .white
-            convertBtn.backgroundColor = .white
-            
-            fromLabel.textColor = .white
-            fromLabel.text = "From"
-            toLabel.textColor = .white
-            toLabel.text = "To"
-            
-        } else if darkMode == true {
-            darkMode = false
-            view.backgroundColor = .white
-            selectToCurrencyBtn.backgroundColor = .white
-            selectFromCurrencyBtn.backgroundColor = .white
-            selectToCurrencyBtn.backgroundColor = .white
-            fromCurrencyTextField.backgroundColor = .white
-            toCurrencyLbl.backgroundColor = .white
-            convertBtn.backgroundColor = .systemTeal
-            
-            fromLabel.textColor = .black
-            fromLabel.text = "From"
-            toLabel.textColor = .black
-            toLabel.text = "To"
-            //rightBarButton.image = UIImage(named: "sun.max")
-        }
+        darkModeFunc()
     }
     
     var darkMode = false
@@ -75,24 +28,16 @@ class ViewController: UIViewController {
     var fromCurrency = ""
     var toCurrency = ""
     
-    private var segmentedidControl: UISegmentedControl {
-        let segmentedControl = UISegmentedControl(items: ["Device", "Light", "Dark"])
-        segmentedControl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        segmentedControl.selectedSegmentTintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.tintColor = UIColor(named: "otherColor")
-        segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        return segmentedControl
-    }
-    
-    @objc private func segmentChanged() {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "secondScreen" else { return }
+        guard let destination = segue.description as? SecondVC else {
+            return
+        }
     }
     
     @IBAction func selectFromCurrencyBtnAxn(_ sender: UIButton) {
@@ -137,6 +82,32 @@ class ViewController: UIViewController {
             let toCurrencyVal = usdVal * toCurrencyRate
             let totalVal = val * toCurrencyVal
             self.toCurrencyLbl.text = String(totalVal)
+        }
+    }
+    
+    func darkModeFunc() {
+        if darkMode == false {
+            darkMode = true
+            view.backgroundColor = .black
+            selectToCurrencyBtn.backgroundColor = .white
+            selectFromCurrencyBtn.backgroundColor = .white
+            fromCurrencyTextField.backgroundColor = .white
+            toCurrencyLbl.backgroundColor = .white
+            convertBtn.backgroundColor = .white
+            fromLabel.textColor = .white
+            toLabel.textColor = .white
+            
+        } else if darkMode == true {
+            darkMode = false
+            view.backgroundColor = .white
+            selectToCurrencyBtn.backgroundColor = .white
+            selectFromCurrencyBtn.backgroundColor = .white
+            selectToCurrencyBtn.backgroundColor = .white
+            fromCurrencyTextField.backgroundColor = .white
+            toCurrencyLbl.backgroundColor = .white
+            convertBtn.backgroundColor = .systemTeal
+            fromLabel.textColor = .black
+            toLabel.textColor = .black
         }
     }
     

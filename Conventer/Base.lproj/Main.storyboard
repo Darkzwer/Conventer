@@ -63,19 +63,18 @@
                                     <action selector="convertBtnAxn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ImJ-as-TkH"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yf4-vl-Nn7">
-                                <rect key="frame" x="16" y="616" width="343" height="32"/>
-                                <segments>
-                                    <segment title="System"/>
-                                    <segment title="Light"/>
-                                    <segment title="Dark"/>
-                                </segments>
-                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaf-qk-Pq1">
+                                <rect key="frame" x="261" y="581" width="74" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="segue"/>
+                                <connections>
+                                    <segue destination="poi-n2-rA7" kind="show" identifier="secondScreen" id="8co-Be-WBR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="C9m-Js-hjv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5Ve-vd-d7f"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yf4-vl-Nn7" secondAttribute="bottom" constant="20" id="6iT-GE-ZOC"/>
                             <constraint firstItem="TuU-r0-wmw" firstAttribute="top" secondItem="Ov2-Nk-m6r" secondAttribute="bottom" constant="16" id="8Pj-iS-Ymv"/>
                             <constraint firstItem="Ov2-Nk-m6r" firstAttribute="centerY" secondItem="C9m-Js-hjv" secondAttribute="centerY" id="8ZW-Fr-tQZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TuU-r0-wmw" secondAttribute="trailing" constant="16" id="9FX-lr-OjW"/>
@@ -85,9 +84,9 @@
                             <constraint firstItem="iiX-MV-fgi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Fc9-C2-W0R"/>
                             <constraint firstItem="jIW-8s-7BX" firstAttribute="trailing" secondItem="iiX-MV-fgi" secondAttribute="trailing" id="I2S-VZ-851"/>
                             <constraint firstItem="lNc-Or-dFx" firstAttribute="top" secondItem="jIW-8s-7BX" secondAttribute="bottom" constant="100" id="JBy-5I-zsN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kaf-qk-Pq1" secondAttribute="bottom" constant="40" id="KGF-cQ-zaI"/>
                             <constraint firstItem="jIW-8s-7BX" firstAttribute="leading" secondItem="iiX-MV-fgi" secondAttribute="leading" id="OvR-JO-Sz6"/>
                             <constraint firstItem="TuU-r0-wmw" firstAttribute="leading" secondItem="def-Gg-DiE" secondAttribute="leading" id="PoU-BR-VCV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yf4-vl-Nn7" secondAttribute="trailing" constant="16" id="RV9-rN-nT5"/>
                             <constraint firstItem="def-Gg-DiE" firstAttribute="leading" secondItem="iiX-MV-fgi" secondAttribute="trailing" constant="8" id="UJt-SK-pdU"/>
                             <constraint firstItem="def-Gg-DiE" firstAttribute="centerY" secondItem="iiX-MV-fgi" secondAttribute="centerY" id="Uwe-h6-dau"/>
                             <constraint firstItem="Ov2-Nk-m6r" firstAttribute="width" secondItem="C9m-Js-hjv" secondAttribute="width" id="alD-9w-CKe"/>
@@ -97,13 +96,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNc-Or-dFx" secondAttribute="trailing" constant="100" id="ngb-6x-Xim"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="def-Gg-DiE" secondAttribute="trailing" constant="16" id="pvo-FX-nfY"/>
                             <constraint firstItem="jIW-8s-7BX" firstAttribute="top" secondItem="C9m-Js-hjv" secondAttribute="bottom" constant="16" id="rLM-NE-8gY"/>
+                            <constraint firstItem="Kaf-qk-Pq1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="261" id="sLI-1n-bDH"/>
                             <constraint firstItem="def-Gg-DiE" firstAttribute="width" secondItem="iiX-MV-fgi" secondAttribute="width" id="t9g-2b-qE8"/>
-                            <constraint firstItem="yf4-vl-Nn7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yld-Zi-azI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kaf-qk-Pq1" secondAttribute="trailing" id="y5f-EY-RJ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Currency" id="OPu-vC-v8m">
-                        <barButtonItem key="rightBarButtonItem" image="moon.stars" catalog="system" id="Wb6-Ts-QLf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="moon.zzz.fill" catalog="system" id="Wb6-Ts-QLf">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="darkModeSwitch:" destination="BYZ-38-t0r" id="cph-cu-OHm"/>
                             </connections>
@@ -123,6 +124,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="108.39580209895054"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="eEu-d3-nfu">
+            <objects>
+                <tableViewController id="poi-n2-rA7" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8pE-5Z-brc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Vhe-T0-hyV">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vhe-T0-hyV" id="fRa-ek-5jo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="poi-n2-rA7" id="KO4-4p-ymZ"/>
+                            <outlet property="delegate" destination="poi-n2-rA7" id="YCw-Ux-dfs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="F3z-SM-Up7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVu-mR-sGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2159" y="-575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="97B-0A-cAC">
@@ -144,6 +174,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="moon.stars" catalog="system" width="64" height="62"/>
+        <image name="moon.zzz.fill" catalog="system" width="58" height="64"/>
     </resources>
 </document>
