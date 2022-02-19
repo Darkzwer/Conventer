@@ -14,7 +14,6 @@
 		78500A1827BB9BAC0024AA83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78500A1627BB9BAC0024AA83 /* Main.storyboard */; };
 		78500A1A27BB9BAE0024AA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78500A1927BB9BAE0024AA83 /* Assets.xcassets */; };
 		78500A2527BBDFBB0024AA83 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A2427BBDFBB0024AA83 /* Data.swift */; };
-		78A3977C27BF757B007CA529 /* DarkModeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3977B27BF757B007CA529 /* DarkModeUserDefaults.swift */; };
 		78C3EDCB27BF9EFC00F2086D /* CurrencyPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3EDCA27BF9EFC00F2086D /* CurrencyPickerVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		78500A1927BB9BAE0024AA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78500A1E27BB9BAE0024AA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78500A2427BBDFBB0024AA83 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		78A3977B27BF757B007CA529 /* DarkModeUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeUserDefaults.swift; sourceTree = "<group>"; };
 		78C3EDCA27BF9EFC00F2086D /* CurrencyPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				78500A2427BBDFBB0024AA83 /* Data.swift */,
-				78A3977B27BF757B007CA529 /* DarkModeUserDefaults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,7 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78A3977C27BF757B007CA529 /* DarkModeUserDefaults.swift in Sources */,
 				78500A1527BB9BAC0024AA83 /* MainVC.swift in Sources */,
 				78C3EDCB27BF9EFC00F2086D /* CurrencyPickerVC.swift in Sources */,
 				78500A1127BB9BAC0024AA83 /* AppDelegate.swift in Sources */,
