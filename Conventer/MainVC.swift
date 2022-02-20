@@ -30,6 +30,8 @@ class MainVC: UIViewController {
                 let totalVal = val * toCurrencyVal
                 self.toCurrencyTextField.text = String(totalVal)
             }
+        } else if fromCurrencyTextField.text == "" {
+            toCurrencyTextField.text = ""
         }
     }
     
