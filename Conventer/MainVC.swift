@@ -18,27 +18,8 @@ class MainVC: UIViewController {
     @IBOutlet weak var selectToCurrencyBtn: UIButton!
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
-    @IBOutlet weak var convertBtn: UIButton!
+    
     @IBOutlet weak var detailLabel: UILabel!
-    
-    // MARK: - Dynamic update of entered values
-    @objc func updateViews(input: Double) {
-        if fromCurrencyTextField.text != "" {
-            if let fromCurrencyRate = currencyConvertRateDict[fromCurrency], let toCurrencyRate = currencyConvertRateDict[toCurrency], let textFieldVal = fromCurrencyTextField.text, let val: Double = Double(textFieldVal){
-                let usdVal = 1.0/fromCurrencyRate
-                let toCurrencyVal = usdVal * toCurrencyRate
-                let totalVal = val * toCurrencyVal
-                self.toCurrencyTextField.text = String(totalVal)
-            }
-        } else if fromCurrencyTextField.text == "" {
-            toCurrencyTextField.text = ""
-        }
-    }
-    
-    // MARK: - IBActions
-    @IBAction func darkModeButton(_ sender: UIBarButtonItem) {
-        darkModeFunc()
-    }
     
     @IBAction func saveCurrencyDetail(segue:UIStoryboardSegue) {
         
@@ -60,15 +41,18 @@ class MainVC: UIViewController {
     
     // MARK: - Properties
     var darkMode = false
-    var currencyConvertRateDict = Data.CurrencyConvertRateDict//Dictionary
     var fromCurrency = ""
     var toCurrency = ""
     var game:String = "testData"
     var player = ""
     var fetch = FetchJSON()
     
-    var currencyCode: [String] = []//коды валюты отдельно
+    var currencyCode: [String] = []//ключи валюты отдельно
     var values: [Double] = []//значения валюты отдельно
+    var currencyConvertRateDict = Data.CurrencyConvertRateDict//Dictionary
+    var newDict: [String:Double] = [:]
+    
+    //var seq = zip(currencyCode, values)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,55 +92,19 @@ class MainVC: UIViewController {
                 //self.currencyConvertRateDict dictionary
                 self.currencyCode.append(contentsOf: results.rates.keys)//Key
                 self.values.append(contentsOf: results.rates.values)//Value
-                print(results.rates)
-                print(self.currencyCode.count)
-                print(self.values.count)
+                self.newDict = Dictionary(uniqueKeysWithValues: zip(self.currencyCode, self.values))
+                print(self.newDict)
+                
+//                print(results.rates)
+//                print(self.currencyCode.count)
+//                print(self.values.count)
             } catch {
                 print(error)
             }
         }.resume()
     }
     
-    @IBAction func selectFromCurrencyBtnAxn(_ sender: UIButton) {
-        let sheet = UIAlertController(title: "From Currency is", message: nil, preferredStyle: .actionSheet)
-        for key in self.currencyConvertRateDict.keys{
-            let action = UIAlertAction(title: key, style: .default) { (action) in
-                self.fromCurrency = key
-                self.selectFromCurrencyBtn.setTitle(key, for: .normal)
-                self.toCurrencyTextField.text = ""
-                
-            }
-            sheet.addAction(action)
-        }
-        if let popoverPresentationController = sheet.popoverPresentationController {
-            popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = sender.bounds
-        }
-        self.present(sheet, animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func selectToCurrencyBtnAxn(_ sender: UIButton) {
-        let sheet = UIAlertController(title: "To Currency is", message: nil, preferredStyle: .actionSheet)
-        for key in self.currencyConvertRateDict.keys{
-            let action = UIAlertAction(title: key, style: .default) { (action) in
-                self.toCurrency = key
-                self.selectToCurrencyBtn.setTitle(key, for: .normal)
-                self.toCurrencyTextField.text = ""
-            }
-            sheet.addAction(action)
-        }
-        if let popoverPresentationController = sheet.popoverPresentationController {
-            popoverPresentationController.sourceView = self.view
-            popoverPresentationController.sourceRect = sender.bounds
-        }
-        self.present(sheet, animated: true, completion: nil)
-    }
-    
-    @IBAction func convertBtnAxn(_ sender: Any) {
-        
-    }
-    
+    // MARK: - DarkMode and setupView funcs
     func darkModeFunc() {
         if darkMode == false {
             darkMode = true
@@ -188,6 +136,63 @@ class MainVC: UIViewController {
     func setupView() {
         fromLabel.backgroundColor = nil
         toLabel.backgroundColor = nil
+    }
+    
+    // MARK: - IBActions
+    @IBAction func darkModeButton(_ sender: UIBarButtonItem) {
+        darkModeFunc()
+    }
+    
+    @IBAction func selectFromCurrencyBtnAxn(_ sender: UIButton) {
+        let sheet = UIAlertController(title: "From Currency is", message: nil, preferredStyle: .actionSheet)
+        //for key in self.currencyCode{
+            for key in self.newDict.keys{//делаем перебор ключей отдельно
+            let action = UIAlertAction(title: key, style: .default) { (action) in
+                self.fromCurrency = key
+                self.selectFromCurrencyBtn.setTitle(key, for: .normal)
+                self.toCurrencyTextField.text = ""
+                
+            }
+            sheet.addAction(action)
+        }
+        if let popoverPresentationController = sheet.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = sender.bounds
+        }
+        self.present(sheet, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func selectToCurrencyBtnAxn(_ sender: UIButton) {
+        let sheet = UIAlertController(title: "To Currency is", message: nil, preferredStyle: .actionSheet)
+        //for key in self.currencyCode{
+            for key in self.newDict.keys{//делаем перебор ключей отдельно
+            let action = UIAlertAction(title: key, style: .default) { (action) in
+                self.toCurrency = key
+                self.selectToCurrencyBtn.setTitle(key, for: .normal)
+                self.toCurrencyTextField.text = ""
+            }
+            sheet.addAction(action)
+        }
+        if let popoverPresentationController = sheet.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = sender.bounds
+        }
+        self.present(sheet, animated: true, completion: nil)
+    }
+    
+    // MARK: - Dynamic update of entered values
+    @objc func updateViews(input: Double) {
+        if fromCurrencyTextField.text != "" {
+            if let fromCurrencyRate = newDict[fromCurrency], let toCurrencyRate = newDict[toCurrency], let textFieldVal = fromCurrencyTextField.text, let val: Double = Double(textFieldVal){
+                let usdVal = 1.0/fromCurrencyRate
+                let toCurrencyVal = usdVal * toCurrencyRate
+                let totalVal = val * toCurrencyVal
+                self.toCurrencyTextField.text = String(totalVal)
+            }
+        } else if fromCurrencyTextField.text == "" {
+            toCurrencyTextField.text = ""
+        }
     }
     
     
