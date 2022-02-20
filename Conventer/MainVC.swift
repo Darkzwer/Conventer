@@ -165,7 +165,6 @@ class MainVC: UIViewController {
             selectFromCurrencyBtn.backgroundColor = .black
             fromCurrencyTextField.backgroundColor = .white
             toCurrencyTextField.backgroundColor = .white
-            convertBtn.backgroundColor = .white
             fromLabel.textColor = .white
             toLabel.textColor = .white
             
@@ -179,7 +178,6 @@ class MainVC: UIViewController {
             selectToCurrencyBtn.backgroundColor = .white
             fromCurrencyTextField.backgroundColor = .white
             toCurrencyTextField.backgroundColor = .white
-            convertBtn.backgroundColor = .systemTeal
             fromLabel.textColor = .black
             toLabel.textColor = .black
         }
