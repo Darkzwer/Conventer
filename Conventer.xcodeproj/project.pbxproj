@@ -15,6 +15,8 @@
 		78500A1A27BB9BAE0024AA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78500A1927BB9BAE0024AA83 /* Assets.xcassets */; };
 		78500A2527BBDFBB0024AA83 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A2427BBDFBB0024AA83 /* Data.swift */; };
 		78C3EDCB27BF9EFC00F2086D /* CurrencyPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3EDCA27BF9EFC00F2086D /* CurrencyPickerVC.swift */; };
+		78C3EDCF27C268B400F2086D /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3EDCE27C268B400F2086D /* ExchangeRates.swift */; };
+		78C3EDD127C2696400F2086D /* FetchJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3EDD027C2696400F2086D /* FetchJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		78500A1E27BB9BAE0024AA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78500A2427BBDFBB0024AA83 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		78C3EDCA27BF9EFC00F2086D /* CurrencyPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerVC.swift; sourceTree = "<group>"; };
+		78C3EDCE27C268B400F2086D /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
+		78C3EDD027C2696400F2086D /* FetchJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				78500A2427BBDFBB0024AA83 /* Data.swift */,
+				78C3EDCE27C268B400F2086D /* ExchangeRates.swift */,
+				78C3EDD027C2696400F2086D /* FetchJSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,8 +168,10 @@
 			files = (
 				78500A1527BB9BAC0024AA83 /* MainVC.swift in Sources */,
 				78C3EDCB27BF9EFC00F2086D /* CurrencyPickerVC.swift in Sources */,
+				78C3EDD127C2696400F2086D /* FetchJSON.swift in Sources */,
 				78500A1127BB9BAC0024AA83 /* AppDelegate.swift in Sources */,
 				78500A1327BB9BAC0024AA83 /* SceneDelegate.swift in Sources */,
+				78C3EDCF27C268B400F2086D /* ExchangeRates.swift in Sources */,
 				78500A2527BBDFBB0024AA83 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,13 +10,18 @@ import UIKit
 
 class CurrencyPickerVC: UITableViewController {
     
+    // MARK: - Properties
     var selectedGame: String? = nil
     var selectedGameIndex: Int? = nil
-    
-    var games:[String] = []
+    var games:[String]!
+    var player = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if let game = selectedGame {
+//            selectedGameIndex = find(games, game)!
+//        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -30,7 +35,7 @@ class CurrencyPickerVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PickGame", for: indexPath)
         cell.textLabel?.text = Data.сurrencies[indexPath.row]
         
         if indexPath.row == selectedGameIndex {

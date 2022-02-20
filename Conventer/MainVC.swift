@@ -9,6 +9,9 @@
 import UIKit
 
 class MainVC: UIViewController {
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var selectFromCurrencyBtn: UIButton!
@@ -17,23 +20,101 @@ class MainVC: UIViewController {
     @IBOutlet weak var toCurrencyTextField: UITextField!
     @IBOutlet weak var convertBtn: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
+    
+    //var activeCurrency = 0.0
+    
+    // MARK: - Dynamic update of entered values
+    @objc func updateViews(input: Double) {
+        if fromCurrencyTextField.text != "" {
+            if let fromCurrencyRate = currencyConvertRateDict[fromCurrency], let toCurrencyRate = currencyConvertRateDict[toCurrency], let textFieldVal = fromCurrencyTextField.text, let val: Double = Double(textFieldVal){
+                let usdVal = 1.0/fromCurrencyRate
+                let toCurrencyVal = usdVal * toCurrencyRate
+                let totalVal = val * toCurrencyVal
+                self.toCurrencyTextField.text = String(totalVal)
+            }
+        }
+    }
+    
+    // MARK: - IBActions
     @IBAction func darkModeButton(_ sender: UIBarButtonItem) {
         darkModeFunc()
     }
+    
     @IBAction func saveCurrencyDetail(segue:UIStoryboardSegue) {
+        
     }
     
+    @IBAction func selectedGame(segue:UIStoryboardSegue) {
+        
+        if let gamePickerViewController = segue.source as? CurrencyPickerVC,
+            
+            let selectedGame = gamePickerViewController.selectedGame {
+            
+            detailLabel.text = selectedGame
+            
+            game = selectedGame
+            
+            //selected game
+        }
+    }
+    
+    // MARK: - Properties
     var darkMode = false
-    var currencyConvertRateDict = Data.CurrencyConvertRateDict
+    var currencyConvertRateDict = Data.CurrencyConvertRateDict//Dictionary
     var fromCurrency = ""
     var toCurrency = ""
     var game:String = "testData"
+    var player = ""
+    var fetch = FetchJSON()
+    
+    var currencyCode: [String] = []//коды валюты отдельно
+    var values: [Double] = []//значения валюты отдельно
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //fetch.fetchJSON()
         setupView()
-        
         //detailLabel.text = game
+        fetchJSON()
+        
+        fromCurrencyTextField.addTarget(self, action: #selector(updateViews), for: .editingChanged)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SavePlayerDetail" {
+            //player = nameTextField
+        }
+        if segue.identifier == "PickGame" {
+            if let gamePickerViewController = segue.destination as? CurrencyPickerVC {
+                gamePickerViewController.selectedGame = game
+            }
+        }
+    }
+    
+    // MARK: - Method
+    func fetchJSON() {
+        guard let url = URL(string: Data.APIUrl) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            guard let safeData = data else { return }
+            
+            do {
+                let results = try JSONDecoder().decode(ExchangeRates.self, from: safeData)
+                //self.currencyConvertRateDict dictionary
+                self.currencyCode.append(contentsOf: results.rates.keys)//Key
+                self.values.append(contentsOf: results.rates.values)//Value
+                print(results.rates)
+                print(self.currencyCode.count)
+                print(self.values.count)
+            } catch {
+                print(error)
+            }
+        }.resume()
     }
     
     @IBAction func selectFromCurrencyBtnAxn(_ sender: UIButton) {
@@ -73,12 +154,7 @@ class MainVC: UIViewController {
     }
     
     @IBAction func convertBtnAxn(_ sender: Any) {
-        if let fromCurrencyRate = currencyConvertRateDict[fromCurrency], let toCurrencyRate = currencyConvertRateDict[toCurrency], let textFieldVal = fromCurrencyTextField.text, let val: Double = Double(textFieldVal){
-            let usdVal = 1.0/fromCurrencyRate
-            let toCurrencyVal = usdVal * toCurrencyRate
-            let totalVal = val * toCurrencyVal
-            self.toCurrencyTextField.text = String(totalVal)
-        }
+        
     }
     
     func darkModeFunc() {
