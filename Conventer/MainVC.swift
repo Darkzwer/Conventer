@@ -21,8 +21,6 @@ class MainVC: UIViewController {
     @IBOutlet weak var convertBtn: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
     
-    //var activeCurrency = 0.0
-    
     // MARK: - Dynamic update of entered values
     @objc func updateViews(input: Double) {
         if fromCurrencyTextField.text != "" {
