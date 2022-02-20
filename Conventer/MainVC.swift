@@ -47,12 +47,9 @@ class MainVC: UIViewController {
     var player = ""
     var fetch = FetchJSON()
     
-    var currencyCode: [String] = []//ключи валюты отдельно
-    var values: [Double] = []//значения валюты отдельно
-    var currencyConvertRateDict = Data.CurrencyConvertRateDict//Dictionary
-    var newDict: [String:Double] = [:]
-    
-    //var seq = zip(currencyCode, values)
+    var currencyCode: [String] = []
+    var values: [Double] = []
+    var currencyConvertRateDict: [String:Double] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,20 +81,13 @@ class MainVC: UIViewController {
                 print(error!)
                 return
             }
-            
             guard let safeData = data else { return }
             
             do {
                 let results = try JSONDecoder().decode(ExchangeRates.self, from: safeData)
-                //self.currencyConvertRateDict dictionary
                 self.currencyCode.append(contentsOf: results.rates.keys)//Key
                 self.values.append(contentsOf: results.rates.values)//Value
-                self.newDict = Dictionary(uniqueKeysWithValues: zip(self.currencyCode, self.values))
-                print(self.newDict)
-                
-//                print(results.rates)
-//                print(self.currencyCode.count)
-//                print(self.values.count)
+                self.currencyConvertRateDict = Dictionary(uniqueKeysWithValues: zip(self.currencyCode, self.values))
             } catch {
                 print(error)
             }
@@ -145,8 +135,7 @@ class MainVC: UIViewController {
     
     @IBAction func selectFromCurrencyBtnAxn(_ sender: UIButton) {
         let sheet = UIAlertController(title: "From Currency is", message: nil, preferredStyle: .actionSheet)
-        //for key in self.currencyCode{
-            for key in self.newDict.keys{//делаем перебор ключей отдельно
+        for key in self.currencyConvertRateDict.keys{
             let action = UIAlertAction(title: key, style: .default) { (action) in
                 self.fromCurrency = key
                 self.selectFromCurrencyBtn.setTitle(key, for: .normal)
@@ -165,8 +154,7 @@ class MainVC: UIViewController {
     
     @IBAction func selectToCurrencyBtnAxn(_ sender: UIButton) {
         let sheet = UIAlertController(title: "To Currency is", message: nil, preferredStyle: .actionSheet)
-        //for key in self.currencyCode{
-            for key in self.newDict.keys{//делаем перебор ключей отдельно
+        for key in self.currencyConvertRateDict.keys{
             let action = UIAlertAction(title: key, style: .default) { (action) in
                 self.toCurrency = key
                 self.selectToCurrencyBtn.setTitle(key, for: .normal)
@@ -184,7 +172,7 @@ class MainVC: UIViewController {
     // MARK: - Dynamic update of entered values
     @objc func updateViews(input: Double) {
         if fromCurrencyTextField.text != "" {
-            if let fromCurrencyRate = newDict[fromCurrency], let toCurrencyRate = newDict[toCurrency], let textFieldVal = fromCurrencyTextField.text, let val: Double = Double(textFieldVal){
+            if let fromCurrencyRate = currencyConvertRateDict[fromCurrency], let toCurrencyRate = currencyConvertRateDict[toCurrency], let textFieldVal = fromCurrencyTextField.text, let val: Double = Double(textFieldVal){
                 let usdVal = 1.0/fromCurrencyRate
                 let toCurrencyVal = usdVal * toCurrencyRate
                 let totalVal = val * toCurrencyVal

@@ -23,18 +23,14 @@ class FetchJSON {
                 print(error!)
                 return
             }
-            
             guard let safeData = data else { return }
             
             do {
                 let results = try JSONDecoder().decode(ExchangeRates.self, from: safeData)
-                self.currencyCode.append(contentsOf: results.rates.keys)
-                self.values.append(contentsOf: results.rates.values)
-                print(results.rates)
-                print(self.currencyCode.count)
-                print(self.values.count)
-                DispatchQueue.main.async {
-                }
+                self.currencyCode.append(contentsOf: results.rates.keys)//Key
+                self.values.append(contentsOf: results.rates.values)//Value
+                //self.newDict = Dictionary(uniqueKeysWithValues: zip(self.currencyCode, self.values))
+                //print(self.newDict)
             } catch {
                 print(error)
             }
