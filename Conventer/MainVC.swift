@@ -49,7 +49,8 @@ class MainVC: UIViewController {
     
     var currencyCode: [String] = []
     var values: [Double] = []
-    var currencyConvertRateDict: [String:Double] = [:]
+    var currencyConvertRateDict: [String:Double] = [:]//to request via API
+//    var currencyConvertRateDict = Data.CurrencyConvertRateDict //local request, to work, need to comment out the line named "fetchJSON()"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,6 @@ class MainVC: UIViewController {
         fetchJSON()
         
         fromCurrencyTextField.addTarget(self, action: #selector(updateViews), for: .editingChanged)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +88,15 @@ class MainVC: UIViewController {
                 self.currencyCode.append(contentsOf: results.rates.keys)//Key
                 self.values.append(contentsOf: results.rates.values)//Value
                 self.currencyConvertRateDict = Dictionary(uniqueKeysWithValues: zip(self.currencyCode, self.values))
+                self.currencyConvertRateDict["BYN"] = nil
+                self.currencyConvertRateDict["EUR"] = nil
+                self.currencyConvertRateDict["RUB"] = nil
+                self.currencyConvertRateDict["USD"] = nil
+                self.currencyConvertRateDict["BYN 🇧🇾"] = 2.57
+                self.currencyConvertRateDict["EUR 🇪🇺"] = 0.88
+                self.currencyConvertRateDict["RUB 🇷🇺"] = 76.29
+                self.currencyConvertRateDict["USD 🇺🇸"] = 1.0
+                self.currencyConvertRateDict = self.currencyConvertRateDict.filter { $0.value < 85 }
             } catch {
                 print(error)
             }
